@@ -28,21 +28,22 @@ http.createServer(function (request, response) {
     // 处理接口
     switch (request.method) {
         case "GET":
-            console.log("aaa");
+            // console.log("aaa");
             if (pathname === "/api"){
-                // console.log(name);
+
+                console.log("111");
                 name = request.query.name;
-                response.writeHead(200, {'Content-Type': 'text/plain'});
+                response.writeHead(200, {'Content-Type': 'text/html'});
                 fs.readFile('login.html', 'utf-8', function (err,data) {
                     console.log(data);
 
-                    aa=data.toString();
-                    console.log(aa);
-                    bb=aa.replace('aa',name);
-                    response.end(bb);
+                    // aa=data.toString();
+                    // console.log(aa);
+                    // bb=aa.replace('aa',name);
+                    // response.end(bb);
 
-                    // data = data.replace('data',name);
-                    // response.end(data);
+                    data = data.replace('data',name);
+                    response.end(data);
                 });
                 // console.log(name);
                 // response.end(name);
@@ -52,7 +53,7 @@ http.createServer(function (request, response) {
             //     // response.write(postHTML);
             //     response.end(html);
             // }
-            else if(pathname === "submit.html"){
+            else if(pathname === "/submit"){
                 response.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
                 fs.readFile('submit.html', 'utf-8', function (err,data) {
                     console.log(data);
@@ -166,5 +167,5 @@ http.createServer(function (request, response) {
     // console.log(request.url);
     // console.log(request.method);
 
-}).listen(8003);
-console.log('Server running at http://127.0.0.1:8003/api/');
+}).listen(8020);
+console.log('Server running at http://127.0.0.1:8020');
